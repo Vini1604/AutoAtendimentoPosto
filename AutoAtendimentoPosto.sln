@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32510.428
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoAtendimentoPosto", "AutoAtendimentoPosto\AutoAtendimentoPosto.csproj", "{FCAB11ED-0218-4DB3-89E7-E302F6B665E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FCAB11ED-0218-4DB3-89E7-E302F6B665E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCAB11ED-0218-4DB3-89E7-E302F6B665E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCAB11ED-0218-4DB3-89E7-E302F6B665E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCAB11ED-0218-4DB3-89E7-E302F6B665E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5F1C70B9-3133-466B-A1E9-B1869F078D28}
+	EndGlobalSection
+EndGlobal

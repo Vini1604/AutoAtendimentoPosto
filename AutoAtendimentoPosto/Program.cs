@@ -81,6 +81,7 @@ namespace AutoAtendimentoPosto
             } while (tipoAbastecimento < 1 || tipoAbastecimento > 3);
             fim = DateTime.Now;
             NotaFiscal nota = new NotaFiscal(nome, cpf, inicio, fim, combustivel, abastecimento);
+            Console.Clear();
             Console.WriteLine(nota);
 
             

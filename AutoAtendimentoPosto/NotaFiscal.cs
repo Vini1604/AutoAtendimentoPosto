@@ -6,11 +6,12 @@ namespace AutoAtendimentoPosto
 {
     class NotaFiscal
     {
+        private int _combustivel;
+        private string _cpf;
         public string Nome { get; set; }
         public DateTime InicioAbastecimento { get; set; }
         public DateTime FimAbastecimento { get; set; }
-        private int _combustivel;
-        private string _cpf;
+
         public Abastecimento Abastecimento { get; set; }
 
         public NotaFiscal()
@@ -20,7 +21,7 @@ namespace AutoAtendimentoPosto
 
         public NotaFiscal(string nome, string cpf, DateTime inicioAbastecimento, DateTime fimAbastecimento, int combustivel, Abastecimento abastecimento)
         {
-            Nome = nome;
+            Nome = nome.ToUpper().Trim();
             _cpf = cpf;
             InicioAbastecimento = inicioAbastecimento;
             FimAbastecimento = fimAbastecimento;
@@ -41,20 +42,26 @@ namespace AutoAtendimentoPosto
         {
             get
             {
-                string cpfGrupo1 = _cpf.Substring(0, 3);
-                string cpfGrupo2 = _cpf.Substring(3, 3);
-                string cpfGrupo3 = _cpf.Substring(6, 3);
-                string cpfGrupo4 = _cpf.Substring(9, 2);
-                string cpf = $"{cpfGrupo1}.{cpfGrupo2}.{cpfGrupo3}-{cpfGrupo4}";
-                return cpf;
+                
+                return MontarCpf();
             }
+        }
+
+        private string MontarCpf()
+        {
+            string cpfGrupo1 = _cpf.Substring(0, 3);
+            string cpfGrupo2 = _cpf.Substring(3, 3);
+            string cpfGrupo3 = _cpf.Substring(6, 3);
+            string cpfGrupo4 = _cpf.Substring(9, 2);
+            string cpf = $"{cpfGrupo1}.{cpfGrupo2}.{cpfGrupo3}-{cpfGrupo4}";
+            return cpf;
         }
 
         public override string ToString()
         {
             StringBuilder mensagem = new StringBuilder();
             mensagem.AppendLine("Posto de Gasolina Dot Net");
-            mensagem.AppendLine($"Cliente: {Nome.ToLower().Trim()}");
+            mensagem.AppendLine($"Cliente: {Nome}");
             mensagem.AppendLine($"CPF: {CPF}");
             mensagem.AppendLine($"Inicio do Abastecimento: {InicioAbastecimento.ToString("dd/MM/yyyy HH:mm:ss")}");
             mensagem.AppendLine($"Fim do Abastecimento: {FimAbastecimento.ToString("dd/MM/yyyy HH:mm:ss")}");

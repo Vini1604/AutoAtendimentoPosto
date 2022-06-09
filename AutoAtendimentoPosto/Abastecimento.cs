@@ -6,13 +6,18 @@ namespace AutoAtendimentoPosto
     abstract class Abastecimento
     {
         public decimal PrecoPorLitro { get; set; }
+        public decimal Litros { get; protected set; }
+        public decimal ValorTotal { get; protected set; }
+        protected Abastecimento()
+        {
 
+        }
         protected Abastecimento(decimal precoPorLitro)
         { 
             PrecoPorLitro = precoPorLitro;
         }
         
-        public virtual void Abastecer()
+        protected void Abastecer()
         {
             int timerMax = 1000;
             int timer = 0;
@@ -24,6 +29,9 @@ namespace AutoAtendimentoPosto
             }
             Console.WriteLine();
             Console.WriteLine("Veiculo Abastecido!");
+            Console.WriteLine("Pressione uma tecla para continuar");
+            Console.ReadKey();
+            Console.WriteLine();
             
         }
     }

@@ -11,21 +11,21 @@ namespace AutoAtendimentoPosto
         public DateTime FimAbastecimento { get; set; }
         private int _combustivel;
         private string _cpf;
-        public double QuantidadeLitros { get; set; }
+        public Abastecimento Abastecimento { get; set; }
 
         public NotaFiscal()
         {
 
         }
 
-        public NotaFiscal(string nome, string cpf, DateTime inicioAbastecimento, DateTime fimAbastecimento, int combustivel, double quantidadeLitros)
+        public NotaFiscal(string nome, string cpf, DateTime inicioAbastecimento, DateTime fimAbastecimento, int combustivel, Abastecimento abastecimento)
         {
             Nome = nome;
             _cpf = cpf;
             InicioAbastecimento = inicioAbastecimento;
             FimAbastecimento = fimAbastecimento;
             _combustivel = combustivel;
-            QuantidadeLitros = quantidadeLitros;
+            Abastecimento = abastecimento;
         }
 
         public string Combustivel
@@ -54,13 +54,13 @@ namespace AutoAtendimentoPosto
         {
             StringBuilder mensagem = new StringBuilder();
             mensagem.AppendLine("Posto de Gasolina Dot Net");
-            mensagem.AppendLine($"Cliente: {Nome}");
+            mensagem.AppendLine($"Cliente: {Nome.ToLower().Trim()}");
             mensagem.AppendLine($"CPF: {CPF}");
             mensagem.AppendLine($"Inicio do Abastecimento: {InicioAbastecimento.ToString("dd/MM/yyyy HH:mm:ss")}");
-            mensagem.AppendLine($"Inicio do Abastecimento: {FimAbastecimento.ToString("dd/MM/yyyy HH:mm:ss")}");
+            mensagem.AppendLine($"Fim do Abastecimento: {FimAbastecimento.ToString("dd/MM/yyyy HH:mm:ss")}");
             mensagem.AppendLine($"Tipo de combustivel = {Combustivel}");
-            mensagem.AppendLine($"Litros: {QuantidadeLitros}");
-            //mensagem.AppendLine($"INSERIR VALOR TOTAL ");
+            mensagem.AppendLine($"Litros: {Abastecimento.Litros}");
+            mensagem.AppendLine($"VALOR TOTAL: R${Abastecimento.ValorTotal.ToString("F2")} ");
 
             return mensagem.ToString();
         }

@@ -6,15 +6,17 @@ namespace AutoAtendimentoPosto
 {
     class AbastecimentoDinheiro : Abastecimento
     {
-        public decimal QuantiaAbastecimento { get; set; }
         public AbastecimentoDinheiro(decimal precoPorLitro, decimal quantiaAbastecimento) : base(precoPorLitro)
         {
-            QuantiaAbastecimento = quantiaAbastecimento;
+            ValorTotal = quantiaAbastecimento;
+            Litros = CalculaLitros();
+            Abastecer();
         }
 
-        public virtual decimal CalculaLitros()
+        protected decimal CalculaLitros()
         {
-            return QuantiaAbastecimento / PrecoPorLitro;
+            
+            return ValorTotal / PrecoPorLitro;
         }
 
 
